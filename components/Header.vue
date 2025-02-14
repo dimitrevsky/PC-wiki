@@ -2,9 +2,9 @@
   <header>
     <div class="header">
       <ul class="nav">
-        <li class="nav__item" @click="filterByType('all')">ГЛАВНАЯ</li>
-        <li class="nav__item" @click="filterByType('Case')">КОРПУСА</li>
-        <li class="nav__item" @click="filterByType('Processor')">ПРОЦЕССОРЫ</li>
+        <li class="nav__item" v-for="item in option" :key="item.id" @click="filterByType(item.value)">
+          {{ item.HTMLrender }}
+        </li>
       </ul>
     </div>
   </header>
@@ -12,6 +12,24 @@
 
 <script setup>
 const emit = defineEmits(["filter"]);
+
+const option = [
+  {
+    id: 1,
+    value: "all",
+    HTMLrender: "ГЛАВНАЯ",
+  },
+  {
+    id: 2,
+    value: "Case",
+    HTMLrender: "КОРПУСА",
+  },
+  {
+    id: 3,
+    value: "Processor",
+    HTMLrender: "ПРОЦЕССОРЫ",
+  },
+];
 
 function filterByType(type) {
   emit("filter", type);
@@ -38,5 +56,17 @@ function filterByType(type) {
 
 .nav__item:hover {
   color: #000;
+}
+
+@media (max-width: 521px) {
+  .nav {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 359px) {
+  .nav {
+    font-size: 14px;
+  }
 }
 </style>
