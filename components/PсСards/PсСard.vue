@@ -14,15 +14,16 @@
   </div>
 </template>
 
-<script setup>
-const props = defineProps({
-  computerData: {
-    type: Array,
-    required: true,
-  },
-});
+<script lang="ts" setup>
+interface PCspecs {
+  id: number;
+  img: string;
+  title: string;
+}
 
-console.log(props.computerData);
+const props = defineProps<{
+  computerData: PCspecs[];
+}>();
 </script>
 
 <style scoped>
@@ -35,6 +36,11 @@ console.log(props.computerData);
   position: relative;
   background-color: #fff;
   padding: 20px;
+
+  .img {
+    width: 100%;
+    height: 300px;
+  }
 }
 
 .options {
@@ -46,36 +52,16 @@ console.log(props.computerData);
   z-index: 100;
 }
 
-.option__img {
-  width: 25px;
-  height: 25px;
-  cursor: pointer;
-  filter: contrast(0);
-  transition: filter 0.1s linear;
-}
-
-.option__img:nth-child(1) {
-  width: 30px;
-}
-
-.option__img:hover {
-  filter: contrast(100%);
-}
-
-.img {
-  width: 100%;
-  height: 300px;
-}
-
 .pc__title__wrapper {
   background-color: #fff;
   margin-top: 10px;
-}
 
-.pc__title {
-  font-weight: 400;
-  text-align: center;
-  font-size: 40px;
-  padding: 16px 0;
+  .pc__title {
+    font-weight: 400;
+    text-align: center;
+    font-size: var(--fz-card-title);
+    padding: 16px 16px;
+    text-wrap: nowrap;
+  }
 }
 </style>

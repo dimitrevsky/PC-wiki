@@ -37,6 +37,9 @@ function filterByType(type) {
 </script>
 
 <style scoped>
+@custom-media --medium-viewport (max-width: 521px);
+@custom-media --small-viewport (max-width: 359px);
+
 .header {
   border-bottom: 1px solid #000;
 }
@@ -44,8 +47,29 @@ function filterByType(type) {
 .nav {
   display: flex;
   list-style: none;
-  font-size: 24px;
+  font-size: var(--fz-nav-title);
   justify-content: space-between;
+
+  /* медиа запросы решил показать в двух вариантах */
+
+  /* 1-ый вариант реализации */
+  /* @media (width <= 521px) {
+    font-size: 18px;
+  }
+
+  @media (width <= 359px) {
+    font-size: 14px;
+  } */
+
+
+  /* 2-ой вариант раелизации */
+  @media (--medium-viewport) {
+    font-size: 18px;
+  }
+
+  @media (--small-viewport) {
+    font-size: 14px;
+  }
 }
 
 .nav__item {
@@ -56,17 +80,5 @@ function filterByType(type) {
 
 .nav__item:hover {
   color: #000;
-}
-
-@media (max-width: 521px) {
-  .nav {
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 359px) {
-  .nav {
-    font-size: 14px;
-  }
 }
 </style>

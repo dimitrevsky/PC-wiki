@@ -11,3 +11,40 @@ body {
   margin: 0 auto;
   padding: 100px 5px;
 }
+
+:root {
+  --fz-card-title: 40px;
+  --fz-nav-title: 24px;
+  --pc__components--list-theme {
+    display: grid;
+    grid: auto-flow / repeat(auto-fill, minmax(280px, 1fr));
+    justify-items: center;
+    gap: 70px 20px;
+    margin-top: 20px;
+    background: #dbd4d4;
+    padding: 50px 0;
+  }
+  --option__img-theme {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    filter: contrast(0);
+    transition: filter 0.1s linear;
+
+    &:hover {
+      filter: contrast(100%);
+    }
+
+    &:nth-child(1) {
+      width: 30px;
+    }
+  }
+}
+
+.pc__components--list {
+  @apply --pc__components--list-theme;
+}
+
+.option__img {
+  @apply --option__img-theme;
+}

@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header @filter="handleFilter" />
-    <div class="pc__components__wrapper">
+    <div class="pc__components--wrapper">
       <div class="pc__components--list">
         <PсСard :computerData="filteredData" />
       </div>
@@ -31,18 +31,8 @@ const handleFilter = (type) => {
 </script>
 
 <style scoped>
-.pc__components__wrapper {
+.pc__components--wrapper {
   margin-top: 20px;
   font-size: 28px;
-}
-
-.pc__components--list {
-  display: grid;
-  grid: auto-flow / repeat(auto-fill, minmax(280px, 1fr));
-  justify-items: center;
-  gap: 70px 20px;
-  margin-top: 20px;
-  background: #dbd4d4;
-  padding: 50px 0;
 }
 </style>
